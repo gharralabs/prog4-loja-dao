@@ -5,6 +5,8 @@
  */
 package br.pucpr.prog4.lojavirtual.controllers;
 
+import br.pucpr.prog4.lojavirtual.models.ClienteManager;
+import br.pucpr.prog4.lojavirtual.models.ClienteManagerImpl;
 import br.pucpr.prog4.lojavirtual.models.Pessoa;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,6 +60,9 @@ public class ClienteServlet extends HttpServlet {
         pessoa.setSexo(request.getParameter("sex"));
         pessoa.setTipoPessoa(request.getParameter("pessoa"));
         
+        ClienteManager manager;
+        manager = new ClienteManagerImpl();
+        manager.cadastrar(pessoa);
         
     }
 
